@@ -243,6 +243,8 @@ namespace fastllm {
         void ToDevice(DataDevice device); // 移动到指定device
 
         void ToDevice(void *device);
+
+        uint64_t DimSize() const;
     };
 
     struct Tokenizer {

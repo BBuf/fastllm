@@ -5,6 +5,7 @@
 #include "chatglm.h"
 #include "moss.h"
 #include "llama.h"
+#include "rwkv.h"
 
 namespace fastllm {
     void basellm::LoadFromFile(const std::string &fileName) {
@@ -63,7 +64,10 @@ namespace fastllm {
             model->history_sep = "\n";
         } else if (modelType == "llama") {
             model = (basellm*)(new LlamaModel());
-        } else {
+        } else if( modelType == "rwkv") {
+            model = (basellm*)(new RWKVModel());
+        }
+        else {
             ErrorInFastLLM("Unkown model type: " + modelType);
         }
         return model;

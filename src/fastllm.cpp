@@ -431,6 +431,14 @@ namespace fastllm {
         printf("\n");
     }
 
+    uint64_t Data::DimSize() const {
+        uint64_t dim_size = 1;
+        for (int i : this->dims) {
+            dim_size *= i;
+        }
+        return dim_size;
+    }
+
     void Data::Print() const {
         printf("shape: ");
         for (int i : this->dims) {

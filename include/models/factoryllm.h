@@ -10,6 +10,7 @@ enum LLM_TYPE {
 	LLM_TYPE_MOSS = 1,
 	LLM_TYPE_VICUNA = 2,
 	LLM_TYPE_BAICHUAN = 3,
+    LLM_TYPE_RWKV = 4,
 };
 
 class factoryllm {
@@ -30,6 +31,8 @@ public:
             case LLM_TYPE_VICUNA:
                 pLLM = new fastllm::LlamaModel();
                 break;
+            case:
+                pLLM = new fastllm::RWKVModel();
             default:
                 break;
         }
